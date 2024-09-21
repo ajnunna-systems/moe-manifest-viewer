@@ -1,0 +1,10 @@
+services:
+  manifest-viewer-prod:
+    build:
+      context: .
+      dockerfile: Dockerfile.prod
+    container_name: manifest-viewer-prod
+    ports:
+      - 8081:80
+    environment:
+      - NODE_ENV=production

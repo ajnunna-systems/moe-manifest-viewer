@@ -1,11 +1,13 @@
-FROM quay.io/realeyes/alpine-node-git:latest as builder
+# Dockerfile.dev
+FROM node:14 as builder
+
 RUN mkdir -p /build
 WORKDIR /build
 COPY . /build
 RUN npm install
-RUN npm run build
+RUN npm run build-dev
 
-# production environment
+# served with nginx
 FROM nginx
 ENV MV_PATH "/usr/share/nginx/html"
 RUN rm -rf $MV_PATH && mkdir -p $MV_PATH

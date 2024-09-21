@@ -81,8 +81,14 @@ To save a viewer as it is in local storage, press `Save Viewer` in the icon bar.
 
 The metric container will be located below the video if video player is present. If no video player is present, the metric container will be on the right of the manifest text. It will contain video metrics, stall-detector, or Hls.js logs
 
-### Docker Commands
+### Running MOE: Viewer (In Docker)
 
-If you want to test how this will run in prod, run this command:
+#### DEV Build
 
-docker-compose up --build
+- To build and run: `docker compose up --build`
+- To just run it: `docker compose up`
+
+#### PROD Build
+
+- To build and run: `docker compose -f ./docker-compose.prod.yml up --build`
+- To just run it: `docker compose -f ./docker-compose.prod.yml up`

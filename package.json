@@ -8,13 +8,14 @@
   },
   "scripts": {
     "ng": "ng",
-    "start": "ng build --sourceMap=false && cd dist && http-server",
+    "start": "ng build --sourceMap=false && cd dist",
     "lint": "tslint \"src/**/*.ts\"",
     "test": "ng test",
     "pree2e": "webdriver-manager update",
     "e2e": "protractor",
     "format:fix": "pretty-quick --staged",
-    "build": "ng build --prod --aot"
+    "build": "ng build --configuration=production",
+    "build-dev": "ng build --configuration=development"
   },
   "husky": {
     "hooks": {
