@@ -25,7 +25,9 @@ if (environment.production) {
 }
 
 if (!isBlacklisted) {
-  platformBrowserDynamic().bootstrapModule(AppModule);
+  platformBrowserDynamic()
+    .bootstrapModule(AppModule)
+    .catch((err) => console.error('Angular bootstrap error:', err));
 } else {
   // remove spinner
   const documentBody = document.body;

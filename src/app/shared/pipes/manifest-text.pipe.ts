@@ -39,7 +39,7 @@ export class ManifestText implements PipeTransform {
         }
       }
       if (lineObj.str && lineObj.str.includes('#EXT-X-SCTE35:CUE')) {
-        const SCTE35: RegExp = /#EXT-X-SCTE35:CUE="([^"]+)/g;
+        const SCTE35 = /#EXT-X-SCTE35:CUE="([^"]+)/g;
         const uri = SCTE35.exec(lineObj.str);
         if (uri !== null) {
           const indices: FormattedIndices = {
@@ -52,7 +52,7 @@ export class ManifestText implements PipeTransform {
         }
       }
       if (lineObj.str && lineObj.str.includes(`#EXT-X-CUE:TYPE="${CueType.GENERIC_CUE_TYPE_SCTE35}"`)) {
-        const CUE: RegExp = /CUE="([^"]+)/g;
+        const CUE = /CUE="([^"]+)/g;
         const uri = CUE.exec(lineObj.str);
         if (uri !== null) {
           const indices: FormattedIndices = {
@@ -68,7 +68,7 @@ export class ManifestText implements PipeTransform {
 
     if (textToHighlight) {
       textToHighlight = textToHighlight.replace(/</g, '&lt;').replace(/>/g, '&gt;');
-      let termRegEx: RegExp = /$^/;
+      let termRegEx = /$^/;
       let invalidMatch = false;
       let highlightIndices: FormattedIndices | null = null;
       if (textToHighlight[0] === '/' && textToHighlight[textToHighlight.length - 1] === '/' && textToHighlight.length > 2) {

@@ -44,15 +44,15 @@ export class ShakaPlayerComponent implements OnInit, OnDestroy {
   public url: string;
 
   private drmServerInfo;
-  private bufferInterval: NodeJS.Timer | null;
-  private latencyInterval: NodeJS.Timer | null;
+  private bufferInterval: any;
+  private latencyInterval: any;
 
   @ViewChild('video', { static: true }) public video: ElementRef;
   @ViewChild('playerContainer', { static: true }) public playerContainer: ElementRef;
 
   private ngUnsubscribe: Subject<void> = new Subject<void>();
-  private bufferedRange: number = 0;
-  private lastLoadedFragment: number = 0;
+  private bufferedRange = 0;
+  private lastLoadedFragment = 0;
 
   private startTime: number;
 

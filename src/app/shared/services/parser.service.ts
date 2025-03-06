@@ -6,8 +6,8 @@ import { scte35Types, SCTE35Type, SCTE35Data, SCTE35DataTypes } from '../models/
 
 @Injectable()
 export class ParserService {
-  private static FORMAT_REGEX: RegExp = /(\#EXTM3U)|(\<MPD)|(WEBVTT)/;
-  private MEDIA_SEQUENCE: RegExp = /#EXT-X-MEDIA-SEQUENCE:(\d+)/g;
+  private static FORMAT_REGEX = /(\#EXTM3U)|(\<MPD)|(WEBVTT)/;
+  private MEDIA_SEQUENCE = /#EXT-X-MEDIA-SEQUENCE:(\d+)/g;
 
   public fragDuration: number;
   public streamInfo: StreamInfo;

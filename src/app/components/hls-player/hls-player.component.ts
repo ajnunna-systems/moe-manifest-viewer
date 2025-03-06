@@ -41,7 +41,7 @@ export class HlsPlayerComponent implements OnInit, OnDestroy {
   public currentSource: string;
   public renditionsVisible = false;
   public menuVisible: boolean;
-  public clearTime: NodeJS.Timer;
+  public clearTime: any;
   public muted: boolean;
   public volume = 1;
   public hls: Hls;
@@ -51,8 +51,8 @@ export class HlsPlayerComponent implements OnInit, OnDestroy {
   public hlsFrameRateMap = new Map<number, number>();
 
   private ngUnsubscribe: Subject<void> = new Subject<void>();
-  private bufferInterval: NodeJS.Timer | null;
-  private latencyInterval: NodeJS.Timer | null;
+  private bufferInterval: any;
+  private latencyInterval: any;
   private drmInfo: DrmInfoType;
   private showHlsKeyLoadingError = true;
   private hlsConfig: any;

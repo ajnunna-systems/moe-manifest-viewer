@@ -39,10 +39,10 @@ export class SubtitlesViewerComponent implements OnInit, OnDestroy {
   public subtitles: Subtitles[];
   public selectedSubtitles: Subtitles;
   public subtitlesLine: SubtitlesLine[];
-  private currentEnd: number = 0;
-  private currentTime: number = 0;
+  private currentEnd = 0;
+  private currentTime = 0;
   private ngUnsubscribe: Subject<void> = new Subject<void>();
-  private subtitleIndex: number = 0;
+  private subtitleIndex = 0;
   private subtitleManifest: ManifestLineObject[];
 
   constructor(private dataService: DataService, private parserService: ParserService) {}

@@ -3,12 +3,12 @@ import * as HlsTypes from 'hls.js';
 const AGE_HEADER_LINE_REGEX = /^age:\s*[\d.]+\s*$/m;
 
 class LoadStats implements HlsTypes.LoaderStats {
-  aborted: boolean = false;
-  loaded: number = 0;
-  retry: number = 0;
-  total: number = 0;
-  chunkCount: number = 0;
-  bwEstimate: number = 0;
+  aborted = false;
+  loaded = 0;
+  retry = 0;
+  total = 0;
+  chunkCount = 0;
+  bwEstimate = 0;
   loading: HlsTypes.HlsProgressivePerformanceTiming = { start: 0, first: 0, end: 0 };
   parsing: HlsTypes.HlsPerformanceTiming = { start: 0, end: 0 };
   buffering: HlsTypes.HlsProgressivePerformanceTiming = { start: 0, first: 0, end: 0 };

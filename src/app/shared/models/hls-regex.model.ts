@@ -1,7 +1,7 @@
 export const PDT_REGEX = /#EXT-X-PROGRAM-DATE-TIME:(.+)/;
 export const MEDIA_SEQUENCE_REGEX = /#EXT-X-MEDIA-SEQUENCE:(\d+)/;
 export const MEDIA_TAG_REGEX = /#EXT-X-MEDIA:(.+)/;
-export const IGNORE_MEDIA_TAG: RegExp = /#EXT-X-MEDIA:(.+AUDIO|.+SUBTITLES)/;
+export const IGNORE_MEDIA_TAG = /#EXT-X-MEDIA:(.+AUDIO|.+SUBTITLES)/;
 export const IFRAME_REGEX = /#EXT-X-I-FRAME-STREAM-INF:(.+)/;
 export const AD_CUE_REGEX = /#EXT-X-CUE-OUT:[0-9]+(.*)/;
 export const TARGET_DURATION_REGEX = /#EXT-X-TARGETDURATION:(\d+)/;
@@ -11,12 +11,12 @@ export const SCTE_DATERANGE_REGEX = /#EXT-X-DATERANGE:(.+)/g;
 export const GENERIC_CUE_REGEX = /#EXT-X-CUE:(.+)/g;
 
 export const ENDLIST_REGEX = /(#EXT-X-ENDLIST)/;
-export const DURATION_REGEX: RegExp = /#EXTINF:(\d+\.\d+|\d+(?!\.))/;
-export const BANDWIDTH_REGEX: RegExp = /.+(?:(?::|,)BANDWIDTH=(\d+))|(?:BANDWIDTH=(\d+)),/;
-export const MATCHES_PATH: RegExp = /[^#]+(\.ts|\.m4s|\.mp4|\.m3u8|\.webvtt|\.vtt|\.mp3|(\?*(format)=(m3u8|mp4|mpeg4)*))|(\?.+)?$/;
-export const SEGMENT_MATCH: RegExp = /(?:\.ts|\.m4s|\.mp4|\.mp3)(\?.+)?$/g;
+export const DURATION_REGEX = /#EXTINF:(\d+\.\d+|\d+(?!\.))/;
+export const BANDWIDTH_REGEX = /.+(?:(?::|,)BANDWIDTH=(\d+))|(?:BANDWIDTH=(\d+)),/;
+export const MATCHES_PATH = /[^#]+(\.ts|\.m4s|\.mp4|\.m3u8|\.webvtt|\.vtt|\.mp3|(\?*(format)=(m3u8|mp4|mpeg4)*))|(\?.+)?$/;
+export const SEGMENT_MATCH = /(?:\.ts|\.m4s|\.mp4|\.mp3)(\?.+)?$/g;
 export const LAST_FRAGMENT_REGEX = /(.+\.ts|\.m4s|\.mp4|\.mp3)(?![\s\S]*\.ts)/g;
-export const HlsParsingRegex: RegExp = new RegExp(
+export const HlsParsingRegex = new RegExp(
   [
     `${SCTE_CUE_REGEX.source}`,
     `${SCTE_DATERANGE_REGEX.source}`,

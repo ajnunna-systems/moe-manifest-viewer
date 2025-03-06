@@ -127,7 +127,7 @@ export class VirtualScrollComponent implements OnInit, OnDestroy {
   private lastTopPadding = -1;
   private _parentScroll: Element | Window;
 
-  constructor(private readonly element: ElementRef, private readonly renderer: Renderer2, private readonly zone: NgZone) {}
+  constructor(private readonly element: ElementRef, private readonly zone: NgZone) {}
 
   public ngOnInit() {
     this.scrollbarWidth = 0; // this.element.nativeElement.offsetWidth - this.element.nativeElement.clientWidth;
@@ -193,7 +193,7 @@ export class VirtualScrollComponent implements OnInit, OnDestroy {
         if (isNaN(data.scrollTop)) {
           return;
         }
-        this.renderer.setProperty(el, 'scrollTop', data.scrollTop);
+        el.scrollTop = data.scrollTop;
         this.refresh();
       })
       .onStop(() => {
@@ -217,9 +217,18 @@ export class VirtualScrollComponent implements OnInit, OnDestroy {
     this.removeParentEventHandlers();
     if (parentScroll) {
       this.zone.runOutsideAngular(() => {
-        this.disposeScrollHandler = this.renderer.listen(parentScroll, 'scroll', this.refreshHandler);
         if (parentScroll instanceof Window) {
-          this.disposeScrollHandler = this.renderer.listen('window', 'resize', this.refreshHandler);
+          this.disposeScrollHandler = () => {
+            window.removeEventListener('scroll', this.refreshHandler);
+            window.removeEventListener('resize', this.refreshHandler);
+          };
+          window.addEventListener('scroll', this.refreshHandler);
+          window.addEventListener('resize', this.refreshHandler);
+        } else {
+          this.disposeScrollHandler = () => {
+            (parentScroll as Element).removeEventListener('scroll', this.refreshHandler);
+          };
+          (parentScroll as Element).addEventListener('scroll', this.refreshHandler);
         }
       });
     }
@@ -297,7 +306,7 @@ export class VirtualScrollComponent implements OnInit, OnDestroy {
     }
 
     if (scrollHeight !== this.lastScrollHeight) {
-      this.renderer.setStyle(this.shimElementRef.nativeElement, 'height', `${scrollHeight}px`);
+      this.shimElementRef.nativeElement.style.height = `${scrollHeight}px`;
       this.lastScrollHeight = scrollHeight;
     }
 
@@ -355,8 +364,8 @@ export class VirtualScrollComponent implements OnInit, OnDestroy {
         : d.childHeight * Math.ceil(start / d.itemsPerRow) - d.childHeight * Math.min(start, this.bufferAmount);
 
     if (topPadding !== this.lastTopPadding) {
-      this.renderer.setStyle(this.contentElementRef.nativeElement, 'transform', `translateY(${topPadding}px)`);
-      this.renderer.setStyle(this.contentElementRef.nativeElement, 'webkitTransform', `translateY(${topPadding}px)`);
+      this.contentElementRef.nativeElement.style.transform = `translateY(${topPadding}px)`;
+      this.contentElementRef.nativeElement.style.webkitTransform = `translateY(${topPadding}px)`;
       this.lastTopPadding = topPadding;
     }
 

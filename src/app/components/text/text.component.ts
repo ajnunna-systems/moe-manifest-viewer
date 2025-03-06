@@ -116,7 +116,7 @@ export class TextComponent implements OnInit, OnDestroy {
     }
     const { startTime } = line;
     const { cntrlActive, shiftActive } = this.keyboardService;
-    const lineUrl: string = String(line.url || line.attributes?.URI || '');
+    const lineUrl = String(line.url || line.attributes?.URI || '');
     const urlVtt = lineUrl.includes('.webvtt') || lineUrl.includes('.vtt');
     if (line.scteData !== undefined) {
       this.onScteClick(line.scteData);

@@ -82,14 +82,14 @@ export class DashPlayerComponent implements OnInit, OnDestroy {
   public videoData: DashData;
   public url: string;
 
-  public VERSION_REGEX: RegExp = /[1-9]/;
+  public VERSION_REGEX = /[1-9]/;
 
   public currentVersion: RegExpExecArray | null;
 
   private withCredentials = false;
   private currentTime = 0;
-  private bufferInterval: NodeJS.Timer | null;
-  private latencyInterval: NodeJS.Timer | null;
+  private bufferInterval: any;
+  private latencyInterval: any;
 
   private protectionData: DashProtectionData;
   private currentSource: string;

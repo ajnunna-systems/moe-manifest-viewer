@@ -27,7 +27,7 @@ export class CMCDComponent implements OnInit {
     paramsArray: [],
   };
 
-  public paramsText: string = 'br,d,ot,tb,bl,dl,mtp,nor,nrr,su,bs,rtp,cid,pr,sf,sid,st,v';
+  public paramsText = 'br,d,ot,tb,bl,dl,mtp,nor,nrr,su,bs,rtp,cid,pr,sf,sid,st,v';
 
   public toggleCmcdEnabled = (data: boolean) => {
     this.cmcdOptions.enabled = data;
@@ -44,11 +44,11 @@ export class CMCDComponent implements OnInit {
     this.updateMessage = true;
   };
 
-  public paramsPlaceHolder: string = 'br,d,ot,tb,bl,dl,mtp,nor,nrr,su,bs,rtp,cid,pr,sf,sid,st,v';
+  public paramsPlaceHolder = 'br,d,ot,tb,bl,dl,mtp,nor,nrr,su,bs,rtp,cid,pr,sf,sid,st,v';
 
-  public sessionIdPlaceHolder: string = 'Enter Session ID';
+  public sessionIdPlaceHolder = 'Enter Session ID';
 
-  public contentIdPlaceHolder: string = 'Enter Content ID';
+  public contentIdPlaceHolder = 'Enter Content ID';
 
-  public updateMessage: boolean = false;
+  public updateMessage = false;
 }

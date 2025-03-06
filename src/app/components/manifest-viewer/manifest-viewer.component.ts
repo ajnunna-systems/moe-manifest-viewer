@@ -156,7 +156,7 @@ export class ManifestViewerComponent implements OnInit, OnDestroy {
 
   public alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 
-  private pollInterval: NodeJS.Timer | null;
+  private pollInterval: any;
   private streamManifestContainer: HTMLElement;
   private currentTerm: string;
   private scrollOffsetLines = 5;

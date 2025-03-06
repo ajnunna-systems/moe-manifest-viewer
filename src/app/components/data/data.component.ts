@@ -58,7 +58,7 @@ export class DataComponent implements OnInit, OnChanges, OnDestroy {
   public selectedVideoError: Metric;
   public selectedFragDuration: Metric;
 
-  public CODECS_MATCH: RegExp = /(CODECS)+="(.*?)"/g;
+  public CODECS_MATCH = /(CODECS)+="(.*?)"/g;
 
   public levelAlignmentStatus: string;
   public levelAlignmentMessages: AlignmentMessage[];
